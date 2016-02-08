@@ -1,0 +1,33 @@
+neo4j:
+  image: neo4j/neo4j
+  # volumes:
+    # - "docker/neo4j/data:/data"
+  ports:
+    - "8474:7474"
+  environment:
+    NEO4J_NO_AUTH: "true"
+    NEO4J_HEAP_MEMORY: 2G
+    NEO4J_CACHE_MEMORY: 1G
+neo4jtest:
+  image: neo4j/neo4j
+  # volumes:
+    # - "docker/neo4j/data:/data"
+  ports:
+    - "9474:7474"
+  environment:
+    NEO4J_NO_AUTH: "true"
+    NEO4J_HEAP_MEMORY: 2G
+    NEO4J_CACHE_MEMORY: 1G
+# app:
+#   build: .
+#   volumes:
+#     - "gradle:/usr/src/app/gradle"
+#     - "gradlew:/usr/src/app/gradlew"
+#     - "build.gradle:/usr/src/app/build.gradle"
+#     - "src:/usr/src/app/src"
+#   ports:
+#     - "9080:8080"
+#   links:
+#     - neo4j
+#   environment:
+#     MEETUP_API_KEY: ""
