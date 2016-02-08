@@ -13,7 +13,7 @@ interface MeetupGroupRepository extends MeetupGraphRepository<MeetupGroup> {
 
     @Query("""
         MATCH (g1:Group { meetupId: {meetupId} })<-[r1:MEMBER_OF]-(m:Member)-[r2:MEMBER_OF]->(n:Group)
-        WITH DISTINCT n, COUNT(m) AS commonMembers
+        WITH n, COUNT(m) AS commonMembers
         WHERE commonMembers >= {minimumCommonMembers}
         RETURN n
         ORDER BY commonMembers DESC
