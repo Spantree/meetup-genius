@@ -96,7 +96,7 @@ public class MeetupEntityWriter implements ItemWriter<Map<String, Object>> {
                 def meetupId = item[idField]
                 def existing = neo4jTemplate.queryForObject(
                     entityClass,
-                    "MATCH (n:${entityLabel}) WHERE n.meetupId = {meetupId} RETURN n",
+                    "MATCH (n:${entityLabel} {meetupId: {meetupId}}) RETURN n",
                     [meetupId: meetupId]
                 )
                 MeetupEntity e = existing ?: entityClass.newInstance()
