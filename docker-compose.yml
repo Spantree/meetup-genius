@@ -1,5 +1,5 @@
 neo4j:
-  image: neo4j/neo4j
+  image: neo4j:latest
   # volumes:
     # - "docker/neo4j/data:/data"
   ports:
@@ -9,7 +9,7 @@ neo4j:
     NEO4J_HEAP_MEMORY: 2G
     NEO4J_CACHE_MEMORY: 1G
 neo4jtest:
-  image: neo4j/neo4j
+  image: neo4j:latest
   # volumes:
     # - "docker/neo4j/data:/data"
   ports:
